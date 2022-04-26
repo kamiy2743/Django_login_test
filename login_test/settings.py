@@ -37,6 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',                
+    'django.contrib.sites',    
+    'allauth',                 
+    'allauth.account',         
+    'allauth.socialaccount',   
 ]
 
 MIDDLEWARE = [
@@ -75,8 +80,15 @@ WSGI_APPLICATION = 'login_test.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django',
+        'USER': 'admin',
+        'PASSWORD': 'kkmm2743',
+        'HOST': 'django.ckfnboivmzay.ap-northeast-1.rds.amazonaws.com',
+        'PORT': '3306',
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+        },
     }
 }
 
@@ -123,3 +135,14 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SITE_ID = 1
+LOGIN_REDIRECT_URL = 'home'
+ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = '210037rj@yse-c.net'
+EMAIL_HOST_PASSWORD = 'MOxl3620'
+EMAIL_USE_TLS = True
+
